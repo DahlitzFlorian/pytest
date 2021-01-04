@@ -270,7 +270,7 @@ class _PytestWrapper:
 
 
 def get_real_func(obj):
-    """ gets the real function object of the (possibly) wrapped object by
+    """gets the real function object of the (possibly) wrapped object by
     functools.wraps or functools.partial.
     """
     start_obj = obj
@@ -320,7 +320,7 @@ def getimfunc(func):
 
 
 def safe_getattr(object: Any, name: str, default: Any) -> Any:
-    """ Like getattr but return default upon any Exception or any OutcomeException.
+    """Like getattr but return default upon any Exception or any OutcomeException.
 
     Attribute access can potentially fail for 'evil' Python objects.
     See issue #214.

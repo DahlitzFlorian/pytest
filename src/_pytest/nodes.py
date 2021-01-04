@@ -88,7 +88,7 @@ class NodeMeta(type):
 
 
 class Node(metaclass=NodeMeta):
-    """ base class for Collector and Item the test collection tree.
+    """base class for Collector and Item the test collection tree.
     Collector subclasses have children, Items are terminal nodes."""
 
     # Use __slots__ to make attribute access faster.
@@ -238,8 +238,8 @@ class Node(metaclass=NodeMeta):
         pass
 
     def listchain(self):
-        """ return list of all parent collectors up to self,
-            starting from root of collection tree. """
+        """return list of all parent collectors up to self,
+        starting from root of collection tree."""
         chain = []
         item = self  # type: Optional[Node]
         while item is not None:
@@ -312,7 +312,7 @@ class Node(metaclass=NodeMeta):
         return [x.name for x in self.listchain()]
 
     def addfinalizer(self, fin):
-        """ register a function to be called when this node is finalized.
+        """register a function to be called when this node is finalized.
 
         This method can only be called when this node is active
         in a setup chain, for example during self.setup().
@@ -320,7 +320,7 @@ class Node(metaclass=NodeMeta):
         self.session._setupstate.addfinalizer(fin, self)
 
     def getparent(self, cls):
-        """ get the next parent node (including ourself)
+        """get the next parent node (including ourself)
         which is an instance of the given class"""
         current = self  # type: Optional[Node]
         while current and not isinstance(current, cls):
@@ -407,16 +407,16 @@ def get_fslocation_from_item(
 
 
 class Collector(Node):
-    """ Collector instances create children through collect()
-        and thus iteratively build a tree.
+    """Collector instances create children through collect()
+    and thus iteratively build a tree.
     """
 
     class CollectError(Exception):
         """ an error during collection, contains a custom message. """
 
     def collect(self):
-        """ returns a list of children (items and collectors)
-            for this collection node.
+        """returns a list of children (items and collectors)
+        for this collection node.
         """
         raise NotImplementedError("abstract")
 
@@ -557,7 +557,7 @@ class File(FSCollector):
 
 
 class Item(Node):
-    """ a basic test invocation item. Note that for a single function
+    """a basic test invocation item. Note that for a single function
     there might be multiple test invocation items.
     """
 

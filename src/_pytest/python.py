@@ -318,7 +318,7 @@ class PyCollector(PyobjMixin, nodes.Collector):
         return self._matches_prefix_or_glob_option("python_functions", name)
 
     def isnosetest(self, obj):
-        """ Look for the __test__ attribute, which is applied by the
+        """Look for the __test__ attribute, which is applied by the
         @nose.tools.istest decorator
         """
         # We explicitly check for "is True" here to not mistakenly treat
@@ -868,7 +868,7 @@ class Metafunc:
         *,
         _param_mark: Optional[Mark] = None
     ) -> None:
-        """ Add new invocations to the underlying test function using the list
+        """Add new invocations to the underlying test function using the list
         of argvalues for the given argnames.  Parametrization is performed
         during the collection phase.  If you need to setup expensive resources
         see about setting indirect to do it rather at test setup time.
@@ -1377,7 +1377,7 @@ def write_docstring(tw: TerminalWriter, doc: str, indent: str = "    ") -> None:
 
 
 class Function(PyobjMixin, nodes.Item):
-    """ a Function Item is responsible for setting up and executing a
+    """a Function Item is responsible for setting up and executing a
     Python test function.
     """
 

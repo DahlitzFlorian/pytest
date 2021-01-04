@@ -87,7 +87,7 @@ class Cache:
         )
 
     def makedir(self, name):
-        """ return a directory path object with the given name.  If the
+        """return a directory path object with the given name.  If the
         directory does not yet exist, it will be created.  You can use it
         to manage files likes e. g. store/retrieve database
         dumps across test sessions.
@@ -107,7 +107,7 @@ class Cache:
         return self._cachedir.joinpath(self._CACHE_PREFIX_VALUES, Path(key))
 
     def get(self, key, default):
-        """ return cached value for the given key.  If no value
+        """return cached value for the given key.  If no value
         was yet cached or the value cannot be read, the specified
         default is returned.
 
@@ -125,7 +125,7 @@ class Cache:
             return default
 
     def set(self, key, value):
-        """ save value for the given key.
+        """save value for the given key.
 
         :param key: must be a ``/`` separated value. Usually the first
              name is the name of your plugin or your application.
@@ -181,7 +181,8 @@ class LFPluginCollWrapper:
             # Sort any lf-paths to the beginning.
             lf_paths = self.lfplugin._last_failed_paths
             res.result = sorted(
-                res.result, key=lambda x: 0 if Path(str(x.fspath)) in lf_paths else 1,
+                res.result,
+                key=lambda x: 0 if Path(str(x.fspath)) in lf_paths else 1,
             )
             return
 

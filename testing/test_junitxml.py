@@ -1203,8 +1203,7 @@ def test_record_attribute(testdir, run_and_parse):
 @pytest.mark.filterwarnings("default")
 @pytest.mark.parametrize("fixture_name", ["record_xml_attribute", "record_property"])
 def test_record_fixtures_xunit2(testdir, fixture_name, run_and_parse):
-    """Ensure record_xml_attribute and record_property drop values when outside of legacy family
-    """
+    """Ensure record_xml_attribute and record_property drop values when outside of legacy family"""
     testdir.makeini(
         """
         [pytest]

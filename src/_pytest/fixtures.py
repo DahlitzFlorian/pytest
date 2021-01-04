@@ -172,7 +172,7 @@ def add_funcarg_pseudo_fixture_def(collector, metafunc, fixturemanager):
 
 
 def getfixturemarker(obj):
-    """ return fixturemarker or None if it doesn't exist or raised
+    """return fixturemarker or None if it doesn't exist or raised
     exceptions."""
     try:
         return getattr(obj, "_pytestfixturefunction", None)
@@ -183,8 +183,8 @@ def getfixturemarker(obj):
 
 
 def get_parametrized_fixture_keys(item, scopenum):
-    """ return list of keys for all parametrized arguments which match
-    the specified scope. """
+    """return list of keys for all parametrized arguments which match
+    the specified scope."""
     assert scopenum < scopenum_function  # function
     try:
         cs = item.callspec
@@ -345,7 +345,7 @@ class FuncFixtureInfo:
 
 
 class FixtureRequest:
-    """ A request for a fixture from a test or fixture function.
+    """A request for a fixture from a test or fixture function.
 
     A request object gives access to the requesting test context
     and has an optional ``param`` attribute in case
@@ -447,9 +447,9 @@ class FixtureRequest:
         return self._pyfuncitem.session
 
     def addfinalizer(self, finalizer):
-        """ add finalizer/teardown function to be called after the
+        """add finalizer/teardown function to be called after the
         last test within the requesting test context finished
-        execution. """
+        execution."""
         # XXX usually this method is shadowed by fixturedef specific ones
         self._addfinalizer(finalizer, scope=self.scope)
 
@@ -460,7 +460,7 @@ class FixtureRequest:
         )
 
     def applymarker(self, marker):
-        """ Apply a marker to a single test function invocation.
+        """Apply a marker to a single test function invocation.
         This method is useful if you don't want to have a keyword/marker
         on all function invocations.
 
@@ -481,7 +481,7 @@ class FixtureRequest:
                 item.funcargs[argname] = self.getfixturevalue(argname)
 
     def getfixturevalue(self, argname):
-        """ Dynamically run a named fixture function.
+        """Dynamically run a named fixture function.
 
         Declaring fixtures via function argument is recommended where possible.
         But if you can only decide whether to use another fixture at test
@@ -643,8 +643,8 @@ class FixtureRequest:
 
 
 class SubRequest(FixtureRequest):
-    """ a sub request for handling getting a fixture from a
-    test function/fixture. """
+    """a sub request for handling getting a fixture from a
+    test function/fixture."""
 
     def __init__(self, request, scope, param, param_index, fixturedef):
         self._parent_request = request
@@ -1170,7 +1170,7 @@ def yield_fixture(
     ids=None,
     name=None
 ):
-    """ (return a) decorator to mark a yield-fixture factory function.
+    """(return a) decorator to mark a yield-fixture factory function.
 
     .. deprecated:: 3.0
         Use :py:func:`pytest.fixture` directly instead.

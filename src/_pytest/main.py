@@ -241,8 +241,8 @@ def pytest_cmdline_main(config):
 
 
 def _main(config: Config, session: "Session") -> Optional[Union[int, ExitCode]]:
-    """ default command line protocol for initialization, session,
-    running tests and reporting. """
+    """default command line protocol for initialization, session,
+    running tests and reporting."""
     config.hook.pytest_collection(session=session)
     config.hook.pytest_runtestloop(session=session)
 

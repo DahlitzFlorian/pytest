@@ -99,7 +99,7 @@ class ConftestImportFailure(Exception):
 
 
 def main(args=None, plugins=None) -> Union[int, ExitCode]:
-    """ return exit code, after performing an in-process test run.
+    """return exit code, after performing an in-process test run.
 
     :arg args: list of command line arguments.
 
@@ -166,7 +166,7 @@ class cmdline:  # compatibility namespace
 
 
 def filename_arg(path, optname):
-    """ Argparse type validator for filename arguments.
+    """Argparse type validator for filename arguments.
 
     :path: path of filename
     :optname: name of the option
@@ -320,7 +320,10 @@ class PytestPluginManager(PluginManager):
             encoding = getattr(err, "encoding", "utf8")
             try:
                 err = open(
-                    os.dup(err.fileno()), mode=err.mode, buffering=1, encoding=encoding,
+                    os.dup(err.fileno()),
+                    mode=err.mode,
+                    buffering=1,
+                    encoding=encoding,
                 )
             except Exception:
                 pass
@@ -426,12 +429,12 @@ class PytestPluginManager(PluginManager):
     # internal API for local conftest plugin handling
     #
     def _set_initial_conftests(self, namespace):
-        """ load initial conftest files given a preparsed "namespace".
-            As conftest files may add their own command line options
-            which have arguments ('--my-opt somepath') we might get some
-            false positives.  All builtin and 3rd party plugins will have
-            been loaded, however, so common options will not confuse our logic
-            here.
+        """load initial conftest files given a preparsed "namespace".
+        As conftest files may add their own command line options
+        which have arguments ('--my-opt somepath') we might get some
+        false positives.  All builtin and 3rd party plugins will have
+        been loaded, however, so common options will not confuse our logic
+        here.
         """
         current = py.path.local()
         self._confcutdir = (
@@ -845,7 +848,7 @@ class Config:
         return py.path.local(str(self.invocation_params.dir))
 
     def add_cleanup(self, func):
-        """ Add a function to be called when the config object gets out of
+        """Add a function to be called when the config object gets out of
         use (usually coninciding with pytest_unconfigure)."""
         self._cleanup.append(func)
 
@@ -1096,18 +1099,18 @@ class Config:
             pass
 
     def addinivalue_line(self, name, line):
-        """ add a line to an ini-file option. The option must have been
+        """add a line to an ini-file option. The option must have been
         declared but might not yet be set in which case the line becomes the
-        the first line in its value. """
+        the first line in its value."""
         x = self.getini(name)
         assert isinstance(x, list)
         x.append(line)  # modifies the cached list inline
 
     def getini(self, name: str):
-        """ return configuration value from an :ref:`ini file <inifiles>`. If the
+        """return configuration value from an :ref:`ini file <inifiles>`. If the
         specified name hasn't been registered through a prior
         :py:func:`parser.addini <_pytest.config.argparsing.Parser.addini>`
-        call (usually from a plugin), a ValueError is raised. """
+        call (usually from a plugin), a ValueError is raised."""
         try:
             return self._inicache[name]
         except KeyError:
@@ -1179,7 +1182,7 @@ class Config:
         return value
 
     def getoption(self, name: str, default=notset, skip: bool = False):
-        """ return command line option value.
+        """return command line option value.
 
         :arg name: name of the option.  You may also specify
             the literal ``--OPT`` option instead of the "dest" option name.

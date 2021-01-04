@@ -436,8 +436,8 @@ class TestCollectonly:
 
     def test_collectonly_missing_path(self, testdir):
         """this checks issue 115,
-            failure in parseargs will cause session
-            not to have the items attribute
+        failure in parseargs will cause session
+        not to have the items attribute
         """
         result = testdir.runpytest("--collect-only", "uhm_missing_path")
         assert result.ret == 4
@@ -1150,8 +1150,8 @@ def test_traceconfig(testdir):
 
 
 class TestGenericReporting:
-    """ this test class can be subclassed with a different option
-        provider to run e.g. distributed tests.
+    """this test class can be subclassed with a different option
+    provider to run e.g. distributed tests.
     """
 
     def test_collect_fail(self, testdir, option):

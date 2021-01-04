@@ -99,8 +99,7 @@ notset = Notset()
 
 
 class MonkeyPatch:
-    """ Object returned by the ``monkeypatch`` fixture keeping a record of setattr/item/env/syspath changes.
-    """
+    """Object returned by the ``monkeypatch`` fixture keeping a record of setattr/item/env/syspath changes."""
 
     def __init__(self):
         self._setattr = []
@@ -134,7 +133,7 @@ class MonkeyPatch:
             m.undo()
 
     def setattr(self, target, name, value=notset, raising=True):
-        """ Set attribute value on target, memorizing the old value.
+        """Set attribute value on target, memorizing the old value.
         By default raise AttributeError if the attribute did not exist.
 
         For convenience you can specify a string as ``target`` which
@@ -171,7 +170,7 @@ class MonkeyPatch:
         setattr(target, name, value)
 
     def delattr(self, target, name=notset, raising=True):
-        """ Delete attribute ``name`` from ``target``, by default raise
+        """Delete attribute ``name`` from ``target``, by default raise
         AttributeError it the attribute did not previously exist.
 
         If no ``name`` is specified and ``target`` is a string
@@ -210,7 +209,7 @@ class MonkeyPatch:
         dic[name] = value
 
     def delitem(self, dic, name, raising=True):
-        """ Delete ``name`` from dict. Raise KeyError if it doesn't exist.
+        """Delete ``name`` from dict. Raise KeyError if it doesn't exist.
 
         If ``raising`` is set to False, no exception will be raised if the
         key is missing.
@@ -223,7 +222,7 @@ class MonkeyPatch:
             del dic[name]
 
     def setenv(self, name, value, prepend=None):
-        """ Set environment variable ``name`` to ``value``.  If ``prepend``
+        """Set environment variable ``name`` to ``value``.  If ``prepend``
         is a character, read the current environment variable value
         and prepend the ``value`` adjoined with the ``prepend`` character."""
         if not isinstance(value, str):
@@ -242,7 +241,7 @@ class MonkeyPatch:
         self.setitem(os.environ, name, value)
 
     def delenv(self, name, raising=True):
-        """ Delete ``name`` from the environment. Raise KeyError if it does
+        """Delete ``name`` from the environment. Raise KeyError if it does
         not exist.
 
         If ``raising`` is set to False, no exception will be raised if the
@@ -273,7 +272,7 @@ class MonkeyPatch:
         invalidate_caches()
 
     def chdir(self, path):
-        """ Change the current working directory to the specified path.
+        """Change the current working directory to the specified path.
         Path can be a string or a py.path.local object.
         """
         if self._cwd is None:
@@ -287,7 +286,7 @@ class MonkeyPatch:
             os.chdir(path)
 
     def undo(self):
-        """ Undo previous changes.  This call consumes the
+        """Undo previous changes.  This call consumes the
         undo stack. Calling it a second time has no effect unless
         you do more monkeypatching after the undo call.
 

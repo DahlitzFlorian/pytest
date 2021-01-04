@@ -1090,7 +1090,7 @@ class TestTeeStdCapture(TestStdCapture):
     captureclass = staticmethod(TeeStdCapture)
 
     def test_capturing_error_recursive(self):
-        """ for TeeStdCapture since we passthrough stderr/stdout, cap1
+        """for TeeStdCapture since we passthrough stderr/stdout, cap1
         should get all output, while cap2 should only get "cap2\n" """
 
         with self.getcapture() as cap1:

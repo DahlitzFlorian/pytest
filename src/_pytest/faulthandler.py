@@ -96,8 +96,7 @@ class FaultHandlerHooks:
 
     @pytest.hookimpl(tryfirst=True)
     def pytest_enter_pdb(self):
-        """Cancel any traceback dumping due to timeout before entering pdb.
-        """
+        """Cancel any traceback dumping due to timeout before entering pdb."""
         import faulthandler
 
         faulthandler.cancel_dump_traceback_later()

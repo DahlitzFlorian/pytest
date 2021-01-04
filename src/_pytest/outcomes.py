@@ -27,8 +27,8 @@ else:
 
 
 class OutcomeException(BaseException):
-    """ OutcomeException and its subclass instances indicate and
-        contain info about test and collection outcomes.
+    """OutcomeException and its subclass instances indicate and
+    contain info about test and collection outcomes.
     """
 
     def __init__(self, msg: Optional[str] = None, pytrace: bool = True) -> None:

@@ -225,7 +225,7 @@ def call_runtest_hook(item, when: "Literal['setup', 'call', 'teardown']", **kwds
 
 @attr.s(repr=False)
 class CallInfo:
-    """ Result/Exception info a function invocation.
+    """Result/Exception info a function invocation.
 
     :param result: The return value of the call, if it didn't raise. Can only be accessed
         if excinfo is None.
@@ -383,8 +383,8 @@ class SetupState:
             raise exc
 
     def prepare(self, colitem):
-        """ setup objects along the collector chain to the test-method
-            and teardown previously setup objects."""
+        """setup objects along the collector chain to the test-method
+        and teardown previously setup objects."""
         needed_collectors = colitem.listchain()
         self._teardown_towards(needed_collectors)
 

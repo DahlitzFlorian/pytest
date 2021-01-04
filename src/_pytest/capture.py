@@ -432,7 +432,11 @@ class MultiCapture:
 
     def __repr__(self):
         return "<MultiCapture out={!r} err={!r} in_={!r} _state={!r} _in_suspended={!r}>".format(
-            self.out, self.err, self.in_, self._state, self._in_suspended,
+            self.out,
+            self.err,
+            self.in_,
+            self._state,
+            self._in_suspended,
         )
 
     def start_capturing(self):
@@ -575,8 +579,8 @@ class FDCaptureBinary:
         return res
 
     def done(self):
-        """ stop capturing, restore streams, return original capture file,
-        seeked to position zero. """
+        """stop capturing, restore streams, return original capture file,
+        seeked to position zero."""
         os.dup2(self.targetfd_save, self.targetfd)
         os.close(self.targetfd_save)
         if self.targetfd_invalid is not None:

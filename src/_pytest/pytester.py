@@ -1341,14 +1341,12 @@ class LineMatcher:
         return lines2
 
     def fnmatch_lines_random(self, lines2: Sequence[str]) -> None:
-        """Check lines exist in the output in any order (using :func:`python:fnmatch.fnmatch`).
-        """
+        """Check lines exist in the output in any order (using :func:`python:fnmatch.fnmatch`)."""
         __tracebackhide__ = True
         self._match_lines_random(lines2, fnmatch)
 
     def re_match_lines_random(self, lines2: Sequence[str]) -> None:
-        """Check lines exist in the output in any order (using :func:`python:re.match`).
-        """
+        """Check lines exist in the output in any order (using :func:`python:re.match`)."""
         __tracebackhide__ = True
         self._match_lines_random(lines2, lambda name, pat: bool(re.match(pat, name)))
 

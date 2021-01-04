@@ -152,16 +152,14 @@ def pytest_configure(config) -> None:
 
 @pytest.fixture(scope="session")
 def tmpdir_factory(request: FixtureRequest) -> TempdirFactory:
-    """Return a :class:`_pytest.tmpdir.TempdirFactory` instance for the test session.
-    """
+    """Return a :class:`_pytest.tmpdir.TempdirFactory` instance for the test session."""
     # Set dynamically by pytest_configure() above.
     return request.config._tmpdirhandler  # type: ignore
 
 
 @pytest.fixture(scope="session")
 def tmp_path_factory(request: FixtureRequest) -> TempPathFactory:
-    """Return a :class:`_pytest.tmpdir.TempPathFactory` instance for the test session.
-    """
+    """Return a :class:`_pytest.tmpdir.TempPathFactory` instance for the test session."""
     # Set dynamically by pytest_configure() above.
     return request.config._tmp_path_factory  # type: ignore
 

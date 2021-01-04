@@ -1061,8 +1061,7 @@ class TestAssertionRewriteHookDetails:
         result.stdout.fnmatch_lines(["* 1 passed*"])
 
     def test_get_data_support(self, testdir):
-        """Implement optional PEP302 api (#808).
-        """
+        """Implement optional PEP302 api (#808)."""
         path = testdir.mkpydir("foo")
         path.join("test_foo.py").write(
             textwrap.dedent(
